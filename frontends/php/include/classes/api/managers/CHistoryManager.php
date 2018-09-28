@@ -146,7 +146,7 @@ class CHistoryManager {
 				' FROM '.self::getTableName($item['value_type']).' h'.
 				' WHERE h.itemid='.zbx_dbstr($item['itemid']).
 					($period ? ' AND h.clock>'.(time() - $period) : '').
-				' ORDER BY h.clock DESC',
+				' ORDER BY h.clock, h.itemid DESC',
 				$limit
 			));
 
